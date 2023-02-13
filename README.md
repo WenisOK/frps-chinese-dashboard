@@ -1,49 +1,34 @@
 # Frps仪表台简体中文版
 
-源项目地址 (@fatedier) [https://github.com/fatedier/frp](https://github.com/fatedier/frp)
+> 由于gofrp项目官方的仪表盘是英文版的，特此我特地汉化了仪表盘，方便英语不好的人访问仪表盘
+
+项目是基于[@fatedier](https://github.com/fatedier)的[https://github.com/fatedier/frp](https://github.com/fatedier/frp)项目二次修改
 
 ## 预览
 
 ![demo.png](./images/demo.png)
 
 # 安装方法
-
-### 1. 安装依赖，需`node.js`环境。
-
+### 1. 下载frp项目源码[https://github.com/fatedier/frp/releases](https://github.com/fatedier/frp/releases)
+### 2. 删除源码中的`./web/frps`文件夹
 ```shell
-root@frp-chinese-dashboard# npm i 
-
-或者
-
-root@frp-chinese-dashboard# yarn
+rm -rf ./web/frps/
 ```
-
-### 2. 构建源码，`make`指令需安装`make`工具。
-
+### 3. 克隆当前仓库代码到`./web/frps`
 ```shell
-root@frp-chinese-dashboard# npm build
-
-或者
-
-root@frp-chinese-dashboard# yarn build
-
-或者
-
-frp-chinese-dashboard# make
+git clone https://github.com/wenisok/frps-chinese-dashboard /path/to/frp-0.xx.x/web/frps
 ```
-
-### 3. 编译frps
-
-> 需要有golang环境
-
-+ 下载frp源代码 [frp release](https://github.com/fatedier/frp/releases)
-
-+ 删除原有的仪表台编译好的文件
-
-  ```shell
-  frp# rm -rf ./assets/frps/*
-  frp# cp /path/to/frp-chinese-dashboard/dist/* ./assets/frps/
-  frp# make frps
-  ```
-
-+ 编译完成！，编译好的`frps`在`bin/frps`。
+### 3. 编译仪表台源码，需`node.js`环境
+```shell
+cd web/frps
+yarn #or npm install
+yarn build #or npm build
+```
+### 4. 编译frps
+```shell
+cd /path/to/frp-0.xx.x
+make file
+make frps
+```
+### 5. 大功告成
+编译后的文件位于`/path/to/frp-0.xx.x/bin/frps`
