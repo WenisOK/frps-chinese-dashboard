@@ -17,6 +17,7 @@
                             <el-menu-item index="/proxies/http">HTTP</el-menu-item>
                             <el-menu-item index="/proxies/https">HTTPS</el-menu-item>
                             <el-menu-item index="/proxies/stcp">STCP</el-menu-item>
+                            <el-menu-item index="/proxies/xtcp">XTCP</el-menu-item>
                         </el-submenu>
                         <el-menu-item index="">帮助</el-menu-item>
                     </el-menu>

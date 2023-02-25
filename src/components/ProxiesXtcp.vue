@@ -74,7 +74,7 @@
 <script>
   import Humanize from 'humanize-plus'
   import Traffic from './Traffic.vue'
-  import { StcpProxy } from '../utils/proxy.js'
+  import { XtcpProxy } from '../utils/proxy.js'
   export default {
     data() {
       return {
@@ -95,13 +95,13 @@
         return Humanize.fileSize(row.traffic_out)
       },
       fetchData() {
-        fetch('/api/proxy/stcp', {credentials: 'include'})
+        fetch('/api/proxy/xtcp', {credentials: 'include'})
           .then(res => {
             return res.json()
           }).then(json => {
             this.proxies = new Array()
             for (let proxyStats of json.proxies) {
-              this.proxies.push(new StcpProxy(proxyStats))
+              this.proxies.push(new XtcpProxy(proxyStats))
             }
           })
       }
